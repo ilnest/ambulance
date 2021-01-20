@@ -1,0 +1,28 @@
+﻿<Page x:Class="Cursach.Views.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cursach.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="LoginPage">
+
+    <Grid>
+        <Border BorderThickness="5" CornerRadius="10" Margin="0 0 0 0" BorderBrush="#FFE41A1A" Height="400" Width="300">
+            <StackPanel>
+                <Label Margin="60, 30, 0,5" FontSize="14" Foreground="#FF838585">Log In</Label>
+                <Border BorderBrush="LightGray" Width="170" Height="30" Margin="0, 0,0,0" BorderThickness="1" CornerRadius="2">
+                    <TextBox Name="loginBox" Width="170" Height="30" Text="login" Foreground="Gray"/>
+                </Border>
+                <Border BorderBrush="LightGray" Width="170" Height="30"  VerticalAlignment="Top" Margin="0, 0,0,0" BorderThickness="1" CornerRadius="2">
+                    <TextBox Name="passwordBox" Width="170" Height="30" Text="password" Foreground="Gray" />
+                </Border>
+                <Border Background="#FFFF2B2B" Width="180" Height="40"  VerticalAlignment="Top" Margin="0, 20,0,0" BorderThickness="1" CornerRadius="4">
+                    <Button Content="Log in" Foreground="White" Background="#FFFF2B2B" Height="40" Width="180" Command="{Binding LoginCommand}" />
+                </Border>
+                <Image Source="D:\Studying\KPI\5th half-year\ТРПЗ_курсач\images\ambulanceCar.jpg" Height="157" HorizontalAlignment="Center" Margin="0 30 0 0"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

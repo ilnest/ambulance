@@ -1,0 +1,76 @@
+﻿<Page x:Class="Cursach.Views.StatisticsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cursach.Views"
+       xmlns:dvc="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+         xmlns:datavis="clr-namespace:System.Windows.Controls.DataVisualization;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+         xmlns:chartingprimitives="clr-namespace:System.Windows.Controls.DataVisualization.Charting.Primitives;assembly=System.Windows.Controls.DataVisualization.Toolkit"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1200"
+      Title="StatisticsPage" Background="LightGray">
+    <Page.DataContext>
+        <local:MyClass />
+    </Page.DataContext>
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <StackPanel  Margin="10 20 0 0">
+                <Label FontSize="20" FontWeight="Bold" Foreground="black" Content="Среднее время прибытия:"/>
+                <Label Name="averageTime" FontSize="16" Margin="0 3 0 0" FontWeight="Bold" Content="{Binding AverTime}" Foreground="black"/>
+            </StackPanel>
+            <StackPanel Margin="10 40 0 0">
+                <Label FontSize="20" FontWeight="Bold" Foreground="black" Content="Лучший экипаж:"/>
+                <Label Name="best" FontSize="16" Margin="0 3 0 0" FontWeight="Bold"  Foreground="black"/>
+            </StackPanel>
+            <StackPanel  Margin="10 60 0 100">
+                <Label FontSize="20" FontWeight="Bold" Foreground="black" Content="Худший экипаж:"/>
+                <Label Name="worst" FontSize="16" Margin="0 3 0 0" FontWeight="Bold"  Foreground="black"/>
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Column="1" >
+            <dvc:Chart >
+                <dvc:Chart.Template>
+                    <ControlTemplate TargetType="{x:Type dvc:Chart}">
+                        <Grid>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <datavis:Title Content="{TemplateBinding Title}" Style="{TemplateBinding TitleStyle}" />
+                                <chartingprimitives:EdgePanel Name="ChartArea" Style="{TemplateBinding ChartAreaStyle}" Grid.Row="1" Margin="0,0,0,0">
+                                    <Grid Panel.ZIndex="-1" Style="{TemplateBinding PlotAreaStyle}" />
+                                    <Border Panel.ZIndex="10" BorderBrush="#FF919191" BorderThickness="1" />
+                                </chartingprimitives:EdgePanel>
+                            </Grid>
+                        </Grid>
+
+
+                    </ControlTemplate>
+
+                </dvc:Chart.Template>
+                <dvc:Chart.Axes>
+                    <dvc:CategoryAxis Orientation="X">
+
+                    </dvc:CategoryAxis>
+                </dvc:Chart.Axes>
+                <dvc:Chart.Series>
+                    <dvc:LineSeries ItemsSource="{Binding Line1}" 
+                            DependentValuePath="Value" 
+                            IndependentValuePath="Id">
+                        <dvc:LineSeries.LegendItemStyle >
+                            <Style TargetType="dvc:LegendItem">
+                                <Setter Property="Visibility" Value="Collapsed"/>
+                            </Style>
+                        </dvc:LineSeries.LegendItemStyle>
+                    </dvc:LineSeries>
+                </dvc:Chart.Series>
+            </dvc:Chart>
+        </Grid>
+    </Grid>
+</Page>

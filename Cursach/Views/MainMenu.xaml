@@ -1,0 +1,42 @@
+﻿<Page x:Class="Cursach.Views.MainMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cursach.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="300"
+      Title="MainMenu">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="150"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <StackPanel>
+            <TextBlock Margin="30, 30, 0, 5">
+            <Run FontSize="16" FontWeight="Bold" Foreground="#FFD34141" Text="Сотрудник: " />
+            <Run Name="employee" Foreground="#FFF03D15" FontSize="14" FontWeight="Bold" />
+                    </TextBlock>
+            <TextBlock Margin="30, 5, 0, 5">
+            <Run FontSize="16" FontWeight="Bold" Foreground="#FFD34141" Text="Время: " />
+            <Run Foreground="#FFF03D15" FontSize="14" FontWeight="Bold" Name="currTime"/>
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Border Height="250" CornerRadius="15" Background="#FFFBB2B2" Width="400"  Margin="0,10,0,0" BorderBrush="#FFE41A1A" BorderThickness="2" >
+                <StackPanel>
+                    <Border Height="45" Width="210" Margin="0 25 0 0" CornerRadius="6" BorderThickness="2" BorderBrush="#FFEC1B1B">
+                        <Button Height="45" Width="210" Background="#FFEC1B1B" Foreground="White" Content="Приём вызовов" FontSize="24" FontWeight="Bold" Command="{Binding OperatorPageComm}"/>
+                    </Border>
+                    <Border Height="45" Width="200" Margin="0 30 0 0" CornerRadius="6" BorderThickness="2" BorderBrush="#FFEC1B1B">
+                        <Button Height="45" Width="200" Background="#FFEC1B1B" Foreground="White" Content="Статистика" FontSize="24" FontWeight="Bold" Command="{Binding StatisticsPageComm}" />
+                    </Border>
+                    <Border Height="45" Width="200" Margin="0 30 0 0" CornerRadius="6" BorderThickness="2" BorderBrush="#FFEC1B1B">
+                        <Button Height="45" Width="200" Background="#FFEC1B1B" Foreground="White" Content="Журнал" FontSize="24" FontWeight="Bold" Command="{Binding LogsPageComm}"/>
+                    </Border>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+    </Grid>
+</Page>

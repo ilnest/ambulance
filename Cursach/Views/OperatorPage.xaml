@@ -1,0 +1,98 @@
+﻿<Page x:Class="Cursach.Views.OperatorPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Cursach.Views"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="OperatorPage">
+
+    <Grid Background="LightGray" Width="1200" Height="600">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="650"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Label FontSize="14" FontWeight="Bold" Foreground="Gray" Content="Имя" Margin="10 20 0 0"/>
+            <Border HorizontalAlignment="Left" BorderBrush="LightGray" Width="170" Height="30" Margin="10, 0,0,0" BorderThickness="1" CornerRadius="2">
+                <TextBox Name="fnameBox" Width="170" Height="30" Foreground="Gray"/>
+            </Border>
+            <Label FontSize="14" FontWeight="Bold" Foreground="Gray" Content="Фамилия" Margin="10 5 0 0"/>
+            <Border HorizontalAlignment="Left" BorderBrush="LightGray" Width="170" Height="30" Margin="10, 0,0,0" BorderThickness="1" CornerRadius="2">
+                <TextBox Name="lnameBox" Width="170" Height="30"  Foreground="Gray"/>
+            </Border>
+            <Label FontSize="14" FontWeight="Bold" Foreground="Gray" Content="Адрес" Margin="10 5 0 0"/>
+            <Border HorizontalAlignment="Left" BorderBrush="LightGray" Width="170" Height="30" Margin="10, 0,0,0" BorderThickness="1" CornerRadius="2">
+                <TextBox Name="addressBox" Width="170" Height="30"  Foreground="Gray"/>
+            </Border>
+            <Label FontSize="14" FontWeight="Bold" Foreground="Gray" Content="Возраст" Margin="10 5 0 0"/>
+            <Border HorizontalAlignment="Left" BorderBrush="LightGray" Width="170" Height="30" Margin="10, 0,0,0" BorderThickness="1" CornerRadius="2">
+                <TextBox Name="ageBox" Width="170" Height="30"  Foreground="Gray"/>
+            </Border>
+            <Label FontSize="14" FontWeight="Bold" Foreground="Gray" Content="Симптомы" Margin="10 5 0 0"/>
+            <StackPanel HorizontalAlignment="Left" Margin="0 0 0 0" Height="200" Width="500" Orientation="Horizontal">
+                <Border HorizontalAlignment="Left" BorderBrush="LightGray" Width="170" Height="120" Margin="10, 0,0,80" BorderThickness="1" CornerRadius="2">
+                    <TextBox Name="symptomsBox" AcceptsReturn="True" TextWrapping="Wrap" Width="170" Height="120" Foreground="Gray"/>
+                </Border>
+                <Border BorderBrush="Gray" BorderThickness="3" CornerRadius="3" Height="170" Width="150" Margin="150, 20, 0, 0">
+                    <ListBox Name="carList" Width="145">
+                        <ListBoxItem Name="car1Item" Background="Red">
+                            <StackPanel Height="28" Width="130">
+                                <Label Foreground="White" Content="ID-1 Toyota" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Name="car2Item" Background="Green">
+                            <StackPanel Height="28" Width="130">
+                                <Label Foreground="White" Content="ID-2 Mercedes" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Name="car3Item" Background="Red">
+                            <StackPanel  Height="28" Width="130">
+                                <Label Foreground="White" Content="ID-3 Tesla" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Name="car4Item" Background="Red">
+                            <StackPanel Height="28" Width="130">
+                                <Label Foreground="White" Content="ID-4 BMW" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                        <ListBoxItem Name="car5Item" Background="Green">
+                            <StackPanel Height="28" Width="130">
+                                <Label Foreground="White" Content="ID-5 Mitsubisi" FontWeight="Bold" HorizontalAlignment="Center"/>
+                            </StackPanel>
+                        </ListBoxItem>
+                    </ListBox>
+                </Border>
+            </StackPanel>
+            <Border HorizontalAlignment="Left" Margin="50 30 0 0" BorderBrush="Black" BorderThickness="2" CornerRadius="3" Width="100" Height="35">
+                <Button Name="submitBtn" Height="35" Width="100" FontSize="14" FontWeight="Bold" Foreground="#FF595252" Content="Отправить" Command="{Binding OperatorCommand}"/>
+            </Border>
+        </StackPanel>
+        <Border Grid.Column="1" Margin="0 0 0 0" BorderBrush="Black" BorderThickness="5" CornerRadius="6" Height="522" Width="636">
+            <Canvas Height="529" Width="640">
+                <Image  Source="D:\Studying\KPI\5th half-year\ТРПЗ_курсач\images\map.jpg"/>
+                <Grid Name="firstCnvCar" Height="10" Width="10" Canvas.Left="206" Canvas.Top="93">
+                    <Ellipse Width="10" Height="10" Fill="Red"/>
+                    <Ellipse Width="6" Height="6" Name="firstCnvCarEllipse" Fill="Yellow" />
+                </Grid>
+                <Grid Name="secondCnvCar" Height="10" Width="10" Canvas.Left="461" Canvas.Top="48">
+                    <Ellipse Width="10" Height="10" Fill="Red"/>
+                    <Ellipse Width="6" Height="6" Name="secondCnvCarEllipse" Fill="Yellow" />
+                </Grid>
+                <Grid Name="thirdCnvCar" Height="10" Width="10" Canvas.Left="114" Canvas.Top="456">
+                    <Ellipse Width="10" Height="10" Fill="Red"/>
+                    <Ellipse Width="6" Height="6" Name="thirdCnvCarEllipse" Fill="Yellow" />
+                </Grid>
+                <Grid Name="fourthCnvCar" Height="10" Width="10" Canvas.Left="608" Canvas.Top="1">
+                    <Ellipse Width="10" Height="10" Fill="Red"/>
+                    <Ellipse Width="6" Height="6" Name="fourthCnvCarEllipse" Fill="Yellow" />
+                </Grid>
+                <Grid Name="fifthCnvCar" Height="10" Width="10" Canvas.Left="105" Canvas.Top="347">
+                    <Ellipse Width="10" Height="10" Fill="Red"/>
+                    <Ellipse Width="6" Height="6" Name="fifthCnvCarEllipse" Fill="Yellow" />
+                </Grid>
+            </Canvas>
+        </Border>
+    </Grid>
+</Page>
